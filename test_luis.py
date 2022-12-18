@@ -1,6 +1,7 @@
 from helpers.frames_helper import get_test_frames
 from helpers.luis_helper import Luis_manager
 import json
+import warnings
 
 
 def test_frames():
@@ -13,6 +14,12 @@ def test_frames():
 
         prediction = luis.get_prediction({"query": query})
 
+        if prediction.prediction.top_intent != intent:
+            error_message = f'Intent "{intent}" not predicted in :\n"{query}".\Predicted intent: {prediction.prediction.top_intent}'
+
+            # raise error
+            raise Exception(error_message)
+
         for expected_entity in entities:
             expected_entity = expected_entity["entity"]
             actual_entities = prediction.prediction.entities
@@ -22,8 +29,8 @@ def test_frames():
                 print(error_message)
                 print("_" * 20)
 
-                # raise error
-                # raise Exception(error_message)
+                # raise warning
+                warnings.warn(error_message)
 
 
 if __name__ == "__main__":
