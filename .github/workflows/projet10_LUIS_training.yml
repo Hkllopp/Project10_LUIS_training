@@ -17,11 +17,11 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name : importing secrest
+            - name: Import secrets
                 env:
-                LuisAppId: ${{ secrets.LUISAPPID }}
-                LuisAPIKey: ${{ secrets.LUISAPIKEY }}
-                LuisAPIHostName : ${{ secrets.LUISAPIHOSTNAME }}
+                    LuisAppId: ${{ secrets.LUISAPPID }}
+                    LuisAPIKey: ${{ secrets.LUISAPIKEY }}
+                    LuisAPIHostName : ${{ secrets.LUISAPIHOSTNAME }}
             - uses: actions/checkout@v3
             - name: Set up Python 3.10
               uses: actions/setup-python@v3
