@@ -21,4 +21,32 @@ raw_test_frames = [
         "returnDate": "2017-12-15",
     },
     {"text": "STOP", "intent": "Cancel"},
+    {"text": "back", "intent": "Cancel"},
+    {
+        "text": "Montreal to Madrid for 100 euros",
+        "intent": "BookFlight",
+        "fromAirport": "Montreal",
+        "toAirport": "Madrid",
+        "maxBudget": "100",
+    },
+    {
+        "text": "Can I go to Las Vegas with 250 dollars ?",
+        "intent": "BookFlight",
+        "maxBudget": "250",
+        "toAirport": "Las Vegas",
+    },
+    {
+        "text": "From Roma to Paris on 25/12/2022",
+        "intent": "BookFlight",
+        "fromAirport": "Roma",
+        "toAirport": "Paris",
+        "departureDate": "25/12/2022",
+    },
+    {
+        "text": "To New York on 2006-12-23, From LAS",
+        "intent": "BookFlight",
+        "fromAirport": "LAS",
+        "toAirport": "New York",
+        "departureDate": "2006-12-23",
+    },
 ]
